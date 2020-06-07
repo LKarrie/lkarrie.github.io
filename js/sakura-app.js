@@ -1106,7 +1106,7 @@ var home = location.href,
           appKey: mashiro_option.v_appKey,
 		  verify: mashiro_option.v_verify,  //不要忘了最后的 ,
           path: window.location.pathname,
-          placeholder: '嚯嚯嚯~'
+          placeholder: '填写qq邮箱后评论 可以同步头像~'
         })
       }
     },
