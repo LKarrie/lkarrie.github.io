@@ -64,23 +64,23 @@
             },
             secondpart = function () {
                 botui.message.add({
-                    delay: 1500,
+                    delay: 800,
                     content: "目前在沪国摸爬滚打中xD"
                 }).then(function () {
                     botui.message.add({
-                        delay: 1500,
+                        delay: 1100,
                         content: "即使有较忙的工作的,也不能妨碍我天天深夜gaming!"
                     }).then(function () {
                         botui.message.add({
-                            delay: 1200,
+                            delay: 1400,
                             content: "就算生活被工作塞满,也总要挤挤空做一些自己喜欢的事嘛:P"
                         }).then(function () {
                             botui.message.add({
-                                delay: 1500,
+                                delay: 1700,
                                 content: "除了玩,偶尔也会捣鼓点自己感兴趣的东西啦"
                             }).then(function () {
                                 botui.message.add({
-                                    delay: 1500,
+                                    delay: 2000,
                                     content: "啥都摸摸学学,希望有一天能够被称为大佬(哈哈做梦"
                                 // }).then(function () {
                                 //     botui.message.add({
@@ -130,7 +130,7 @@
                     content: "其实自己去年就已经在搭小窝了,但因为各种原因（懒狗）一直没有好好弄起来..."
                 }).then(function () {
                     botui.message.add({
-                        delay: 1500,
+                        delay: 1000,
                         content: "最近终于下定决心重新拾起来,鸽了一年咯所以叫自己咕咕~"
                     // }).then(function () {
                     //     botui.action.button({
@@ -145,11 +145,11 @@
                     // })
                     }).then(function () {
                         botui.message.add({
-                            delay: 1500,
+                            delay: 1200,
                             content: "我,这一次搭博绝对不会鸽!（Flag"
                         }).then(function () {
                             botui.message.add({
-                                delay: 1500,
+                                delay: 1400,
                                 content: "嘻嘻"
                             }).then(function () {
                                 botui.message.add({
