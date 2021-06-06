@@ -400,18 +400,40 @@
   
   <div id="content" class="site-content">
     <article class="post-item post-301 page type-page status-publish has-post-thumbnail hentry">
-      <h1 id="Build-Server"><a href="#Build-Server" class="headerlink" title="Build Server"></a>Build Server</h1><p>刚说可能没啥时间建服玩，大学同窗好友就说要来一起游戏…</p>
+      <h1><span id="build-server">Build Server</span></h1><p>刚说可能没啥时间建服玩，大学同窗好友就说要来一起游戏…</p>
 <p>很久没弄了，简单记录记录</p>
-<h1 id="Minecraft"><a href="#Minecraft" class="headerlink" title="Minecraft"></a>Minecraft</h1><p>官方网站上更新了很多创建的方法<a href="https://minecraft.fandom.com/wiki/Tutorials/Setting_up_a_server" target="_blank" rel="noopener">官方教程</a>，新加了服务器控制台，docker启动服务端之类的东西（什么都容器化真好啊，用docker启动应该会非常简单），但是我自己没有实际尝试过不是很清楚用起来方便不方便，而且SB哥们还一直催催催GKD，这里我还是用老方法装服务器吧…毕竟老方法很熟一会就弄好了，后面有时间玩玩控制台和docker mc之后再记录记录。</p>
-<h2 id="Minecraft-Vanilla-Server（Linux）"><a href="#Minecraft-Vanilla-Server（Linux）" class="headerlink" title="Minecraft Vanilla Server（Linux）"></a>Minecraft Vanilla Server（Linux）</h2><p>官方网站上更新了很多创建的方法<a href="https://minecraft.fandom.com/wiki/Tutorials/Setting_up_a_server" target="_blank" rel="noopener">官方教程</a>，新加了服务器控制台，docker启动服务端之类的东西（什么都容器化真好啊），但是我自己没有实际尝试过不是很清楚用起来方便不方便，而且SB哥们还一直催催催GKD，这里我还是用老方法装服务器吧…毕竟老方法很熟一会就弄好了，后面有时间玩玩控制台和docker mc之后再记录记录。</p>
-<h3 id="准备"><a href="#准备" class="headerlink" title="准备"></a>准备</h3><p>一台LINUX服务器（其实用自己的win机也可以开，但我比较喜欢用阿里云的Linux云服弄这些东西</p>
+<!-- toc -->
+<ul>
+<li><a href="#minecraft">Minecraft</a><ul>
+<li><a href="#minecraft-vanilla-serverlinux">Minecraft Vanilla Server（Linux）</a><ul>
+<li><a href="#准备">准备</a></li>
+<li><a href="#安装screen可选">安装Screen（可选）</a></li>
+<li><a href="#安装java">安装JAVA</a></li>
+<li><a href="#下载serverjar">下载server.jar</a></li>
+<li><a href="#启动">启动</a></li>
+<li><a href="#修改serverproperties">修改server.properties</a></li>
+<li><a href="#over">over</a></li>
+</ul>
+</li>
+<li><a href="#minecraft-mod-server-linux">Minecraft Mod Server (Linux)</a></li>
+</ul>
+</li>
+<li><a href="#dont-starve-together">Don’t Starve Together</a><ul>
+<li><a href="#dst-vanilla-serverlinux">DST Vanilla Server（Linux）</a></li>
+<li><a href="#dst-mod-serverlinux">DST Mod Server（Linux）</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+<hr>
+<h1><span id="minecraft">Minecraft</span></h1><p>官方网站上更新了很多创建的方法<a href="https://minecraft.fandom.com/wiki/Tutorials/Setting_up_a_server" target="_blank" rel="noopener">官方教程</a>，新加了服务器控制台，docker启动服务端之类的东西（什么都容器化真好啊，用docker启动应该会非常简单），但是我自己没有实际尝试过不是很清楚用起来方便不方便，而且SB哥们还一直催催催GKD，这里我还是用老方法装服务器吧…毕竟老方法很熟一会就弄好了，后面有时间玩玩控制台和docker mc之后再记录记录。</p>
+<h2><span id="minecraft-vanilla-serverlinux">Minecraft Vanilla Server（Linux）</span></h2><p>官方网站上更新了很多创建的方法<a href="https://minecraft.fandom.com/wiki/Tutorials/Setting_up_a_server" target="_blank" rel="noopener">官方教程</a>，新加了服务器控制台，docker启动服务端之类的东西（什么都容器化真好啊），但是我自己没有实际尝试过不是很清楚用起来方便不方便，而且SB哥们还一直催催催GKD，这里我还是用老方法装服务器吧…毕竟老方法很熟一会就弄好了，后面有时间玩玩控制台和docker mc之后再记录记录。</p>
+<h3><span id="准备">准备</span></h3><p>一台LINUX服务器（其实用自己的win机也可以开，但我比较喜欢用阿里云的Linux云服弄这些东西</p>
 <p>如果你买的是云服务，配置可以先用1C4G买，不够了再往上加即可，有钱也可先直接买4C8G</p>
 <p>网络的话，我记得以前开发大概快10个人玩，我买的是4-6M的外网宽带了，1-2M大概只够4个人玩吧，看自己的需要也可以先买低在往上加</p>
 <p>操作喜欢的话，我比较喜欢Centos，服务器用的Centos7.4，其他Linux安装方法类比即可</p>
 <p><code>如果你也是阿里云服务器 记得在安全组-配置规则里面开放端口 MC默认的是25565 不怕攻击图方便也可以直接设置-1/-1全放开放:D</code></p>
-<h3 id="安装Screen（可选）"><a href="#安装Screen（可选）" class="headerlink" title="安装Screen（可选）"></a>安装Screen（可选）</h3><ul>
-<li>为什么要安装Screen :D ?</li>
-</ul>
+<h3><span id="安装screen可选">安装Screen（可选）</span></h3><p>为什么要安装Screen :D ?</p>
 <p>为了让服务器一直运行~，你shh断了服也关掉了，但是我笔记本其实很少关机…我的Xshell也没关过…所以其实对我来说按不按都一样，不过还是记录一下比较这个东西很好用，使用起来有点类似VNC吧，可以开很多窗口（会话）</p>
 <pre><code class="shell"># 安装Screen
 yum install screen -y
@@ -432,7 +454,7 @@ screen -X -S session quit
 </code></pre>
 <p>简单操作下：</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/game/image-20210607001622547.png" alt="image-20210607001622547"></p>
-<h3 id="安装JAVA"><a href="#安装JAVA" class="headerlink" title="安装JAVA"></a>安装JAVA</h3><p>Linux服务器准备好之后需要安装JAVA</p>
+<h3><span id="安装java">安装JAVA</span></h3><p>Linux服务器准备好之后需要安装JAVA</p>
 <p>可以使用yum安装，也可以用离线包安装，这里我用离线包安装</p>
 <pre><code class="shell"># 创建Java安装路径并上传离线包
 mkdir -p /server/java
@@ -465,10 +487,10 @@ vim ~/.bash_profile
 
 #也可以修改 ~/.bashrc 在其中添加环境变量或者添加source /etc/profile
 </code></pre>
-<h3 id="下载server-jar"><a href="#下载server-jar" class="headerlink" title="下载server.jar"></a>下载server.jar</h3><p>我自己是在官网上下的：<a href="https://www.minecraft.net/zh-hans/download/server" target="_blank" rel="noopener">官方下载</a></p>
+<h3><span id="下载serverjar">下载server.jar</span></h3><p>我自己是在官网上下的：<a href="https://www.minecraft.net/zh-hans/download/server" target="_blank" rel="noopener">官方下载</a></p>
 <p>我记得官网上一直显示的是最新的服务器端jar包，2021.06.07我自己下载是 1.16.5的jar，后面如果更新了官网应该会显示下载最新的版本</p>
 <p>emm，历史的版本得百度百度也都是可以找得到得，我记得有网站可以下载历史的jar，太久没弄找不到了，有空看到了再补上</p>
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>纯净启动也很简单，如果你也是从官网下载的jar就能看到</p>
+<h3><span id="启动">启动</span></h3><p>纯净启动也很简单，如果你也是从官网下载的jar就能看到</p>
 <pre><code class="shell"># 进入screen创建的mc窗口
 screen -r Minecraft
 # 执行
@@ -483,7 +505,7 @@ java -Xmx1024M -Xms1024M -jar minecraft_server.1.16.5.jar nogui
 <p>通过名字不难理解这些文件是什么意思</p>
 <p>world文件夹就是你刚刚生成的世界，不喜欢就删除掉 rm -rf world/  再重新运行服务器就会生成新的世界，需要备份就直接copy保存这个文件夹也就行咯，你甚至可以把其他世界内容复制到里面去，替换你服务器的世界。</p>
 <p>其他的嘛能用到再补充</p>
-<h3 id="修改server-properties"><a href="#修改server-properties" class="headerlink" title="修改server.properties"></a>修改server.properties</h3><pre><code class="markdown"># server.properties是世界的相关配置设置文件，个人感觉必须要设置的有几个
+<h3><span id="修改serverproperties">修改server.properties</span></h3><pre><code class="markdown"># server.properties是世界的相关配置设置文件，个人感觉必须要设置的有几个
 # 关闭在线模式 允许盗版侠进入服务器
 online-mode=false
 # 运行飞行，不开启悬停在空中会被服务器自动踢出
@@ -491,10 +513,10 @@ allow-flight=true
 # 剩下的难度 人数之类的看个人吧
 </code></pre>
 <p>详细的设置和解释可以参考：<a href="https://minecraft.fandom.com/zh/wiki/Server.properties" target="_blank" rel="noopener">官方 server properties</a></p>
-<h3 id="over"><a href="#over" class="headerlink" title="over"></a>over</h3><p>简单服务器到这就开完咯，玩爽了看朋友们还想不想玩mod或者别的，再更~</p>
-<h2 id="Minecraft-Mod-Server-Linux"><a href="#Minecraft-Mod-Server-Linux" class="headerlink" title="Minecraft Mod Server (Linux)"></a>Minecraft Mod Server (Linux)</h2><p>balala</p>
-<h1 id="Don’t-Starve-Together"><a href="#Don’t-Starve-Together" class="headerlink" title="Don’t Starve Together"></a>Don’t Starve Together</h1><h2 id="DST-Vanilla-Server（Linux）"><a href="#DST-Vanilla-Server（Linux）" class="headerlink" title="DST Vanilla Server（Linux）"></a>DST Vanilla Server（Linux）</h2><p>​    balala</p>
-<h2 id="DST-Mod-Server（Linux）"><a href="#DST-Mod-Server（Linux）" class="headerlink" title="DST Mod Server（Linux）"></a>DST Mod Server（Linux）</h2><p>​    balala</p>
+<h3><span id="over">over</span></h3><p>简单服务器到这就开完咯，玩爽了看朋友们还想不想玩mod或者别的，再更~</p>
+<h2><span id="minecraft-mod-server-linux">Minecraft Mod Server (Linux)</span></h2><p>balala</p>
+<h1><span id="dont-starve-together">Don’t Starve Together</span></h1><h2><span id="dst-vanilla-serverlinux">DST Vanilla Server（Linux）</span></h2><p>​    balala</p>
+<h2><span id="dst-mod-serverlinux">DST Mod Server（Linux）</span></h2><p>​    balala</p>
 
       <!-- .entry-content -->
       
