@@ -40,9 +40,10 @@ mashiro_global.ini = new function () {
         }, 10000)
       } catch (e) {}
     }
-    if ($('div').hasClass('poem-wrap')) {
-      get_poem('#poem', '#info')
-    }
+    // 注视古诗替换
+    // if ($('div').hasClass('poem-wrap')) {
+    //   get_poem('#poem', '#info')
+    // }
     $(function () {
       function waveloop1 () {
         $('#banner_wave_1').css({
@@ -74,9 +75,10 @@ mashiro_global.ini = new function () {
     social_share()
     mashiro_global.post_list_show_animation.ini()
     copy_code_block()
-    if ($('div').hasClass('poem-wrap')) {
-      get_poem('#poem', '#info')
-    }
+    // 注释古诗替换
+    // if ($('div').hasClass('poem-wrap')) {
+    //   get_poem('#poem', '#info')
+    // }
     hearthstone_deck_iframe()
   }
 }()
@@ -1106,7 +1108,7 @@ var home = location.href,
           appKey: mashiro_option.v_appKey,
 		  verify: mashiro_option.v_verify,  //不要忘了最后的 ,
           path: window.location.pathname,
-          placeholder: '填写qq邮箱后评论 可以同步头像~'
+          placeholder: '填写扣扣邮箱后评论 可以同步头像~'
         })
       }
     },

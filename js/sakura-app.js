@@ -40,7 +40,7 @@ mashiro_global.ini = new function () {
         }, 10000)
       } catch (e) {}
     }
-    // 注视古诗替换
+    // 注释古诗替换
     // if ($('div').hasClass('poem-wrap')) {
     //   get_poem('#poem', '#info')
     // }
@@ -172,20 +172,20 @@ function imgError (ele, type) {
   switch (type) {
     case 1:
       if (ele.src.includes('https://cn.gravatar.com/avatar')) {
-        ele.src = ele.src.replace('https://cn.gravatar.com/avatar/', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/gravatar.jpg')
+        ele.src = ele.src.replace('https://cn.gravatar.com/avatar/', 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/other/gravatar.jpg')
       } else {
-        ele.src = 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/default_avatar.jpg'
+        ele.src = 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/other/default_avatar.jpg'
       }
       break
     case 2:
-      ele.src = 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/default_gavatar.jpg'
+      ele.src = 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/other/default_gavatar.jpg'
       break
     case 3:
 
-      ele.src = 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png'
+      ele.src = 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/other/image-404.png'
       break
     default:
-      ele.src = 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/image-404.png'
+      ele.src = 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/other/image-404.png'
   }
 }
 mashiro_global.post_list_show_animation = new function () {
@@ -434,7 +434,7 @@ function checkBgImgCookie () {
     $('#banner_wave_2').addClass('banner_wave_hide_fit_skin')
   }
   if (bgurl != '') {
-    if (bgurl == 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/sakura.png' || bgurl == 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/plaid.jpg' || bgurl == 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/star.png' || bgurl == 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/point.png' || bgurl == 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/little-monster.png') {
+    if (bgurl == 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/themebg/sakura.png' || bgurl == 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/themebg/plaid.jpg' || bgurl == 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/themebg/star.png' || bgurl == 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/themebg/point.png' || bgurl == 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/themebg/little-monster.png') {
       mashiro_global.variables.skinSecter = true
       mashiro_global.variables.isNight = false
       $('#night-mode-cover').css('visibility', 'hidden')
@@ -501,11 +501,11 @@ $(document).ready(function () {
       setCookie('bgImgSetting', url, 30)
     })
   }
-  changeBG('#sakura-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/sakura.png')
-  changeBG('#gribs-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/plaid.jpg')
-  changeBG('#pixiv-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/star.png')
-  changeBG('#KAdots-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/point.png')
-  changeBG('#totem-bg', 'https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/themebg/little-monster.png')
+  changeBG('#sakura-bg', 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/themebg/sakura.png')
+  changeBG('#gribs-bg', 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/themebg/plaid.jpg')
+  changeBG('#pixiv-bg', 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/themebg/star.png')
+  changeBG('#KAdots-bg', 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/themebg/point.png')
+  changeBG('#totem-bg', 'https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/themebg/little-monster.png')
   changeBGnoTrans('#bing-bg', 'https://api.shino.cc/bing/')
   $('.skin-menu #white-bg').click(function () {
     mashiro_global.variables.skinSecter = false
@@ -523,7 +523,7 @@ $(document).ready(function () {
   $('.skin-menu #dark-bg').click(function () {
     mashiro_global.variables.skinSecter = true
     mashiro_global.variables.isNight = true
-    $('body').css('background-image', 'url(https://cdn.jsdelivr.net/gh/honjun/cdn@1.6/img/other/starry_sky.png)')
+    $('body').css('background-image', 'url(https://cdn.jsdelivr.net/gh/LKarrie/CDN/img/other/starry_sky.png)')
     $('.blank').css('background-color', 'rgba(255,255,255,.8)')
     $('#night-mode-cover').css('visibility', 'visible')
     $('.pattern-center').removeClass('pattern-center').addClass('pattern-center-sakura')
@@ -1614,6 +1614,7 @@ $(function () {
   })
   console.log('%c Mashiro %c', 'background:#24272A; color:#ffffff', '', 'https://2heng.xin/')
   console.log('%c hojun %c', 'background:#24272A; color:#ffffff', '', 'https://www.hojun.cn/')
+  console.log('%c LKarrie %c', 'background:#24272A; color:#ffffff', '', 'https://lkarrie.com/')
   console.log('%c Github %c', 'background:#24272A; color:#ffffff', '', 'https://github.com/honjun/hexo-theme-sakura')
 })
 var isWebkit = navigator.userAgent.toLowerCase().indexOf('webkit') > -1,
