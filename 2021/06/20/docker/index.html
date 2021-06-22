@@ -431,7 +431,6 @@
 <li><a href="https://docker_practice.gitee.io/zh-cn/" target="_blank" rel="noopener">参考中文文档地址</a>（中文文档也不太好用，网页点不动…）</li>
 <li><a href="https://download.docker.com/linux/static/stable/x86_64/" target="_blank" rel="noopener">离线Docker二进制文件包下载</a></li>
 </ul>
-<hr>
 <h2 id="1-什么是-Docker"><a href="#1-什么是-Docker" class="headerlink" title="1.什么是 Docker"></a>1.什么是 Docker</h2><h3 id="1-1-简介"><a href="#1-1-简介" class="headerlink" title="1.1 简介"></a>1.1 简介</h3><pre><code class="markdown"># 官方介绍
 - We have a complete container solution for you - no matter who you are and where you are on your containerization journey.
 - 翻译: 我们为你提供了一个完整的容器解决方案,不管你是谁,不管你在哪,你都可以开始容器的的旅程。
@@ -441,7 +440,6 @@
 - Docker使用Google公司推出的 Go语言 进行开发实现，基于 Linux 内核的 cgroup、namespace 以及 OverlayFS 类的 Union FS 等技术，对进程进行封装隔离，属于操作系统层面的虚拟化技术。由于隔离的进程独立于宿主和其它的隔离的进程,因此也称其为容器。
 - Docker是一个CS架构，有分客户端和服务器端，详细你可以docker info 可以看出来 client和server
 </code></pre>
-<hr>
 <h2 id="2-Docker和虚拟机区别"><a href="#2-Docker和虚拟机区别" class="headerlink" title="2.Docker和虚拟机区别"></a>2.Docker和虚拟机区别</h2><p>关于Docker与虚拟机的区别下面的图已经说的很清楚了。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20201220222456675.png" alt="image-20201220222456675"></p>
 <p><code>比较上面两张图，我们发现虚拟机是携带操作系统，本身很小的应用程序却因为携带了操作系统而变得非常大，很笨重</code>。Docker是不携带操作系统的，所以Docker的应用就非常的轻巧。另外在调用宿主机的CPU、磁盘等等这些资源的时候，拿内存举例，虚拟机是利用Hypervisor去虚拟化内存，整个调用过程是虚拟内存-&gt;虚拟物理内存-&gt;真正物理内存，但是Docker是利用Docker Engine去调用宿主的的资源，这时候过程是虚拟内存-&gt;真正物理内存。</p>
@@ -491,7 +489,6 @@
 </tr>
 </tbody>
 </table>
-<hr>
 <h2 id="3-Docker的安装"><a href="#3-Docker的安装" class="headerlink" title="3.Docker的安装"></a>3.Docker的安装</h2><h3 id="3-1-相关网站"><a href="#3-1-相关网站" class="headerlink" title="3.1 相关网站"></a>3.1 相关网站</h3><p><a href="https://docs.docker.com/engine/install/" target="_blank" rel="noopener">官方安装文档</a></p>
 <h3 id="3-2-在线安装Docker-centos7-x"><a href="#3-2-在线安装Docker-centos7-x" class="headerlink" title="3.2 在线安装Docker(centos7.x)"></a>3.2 在线安装Docker(centos7.x)</h3><p>注意：Docker只兼容centos7以及之后的版本，centos6？对不起不行，不支持</p>
 <ul>
@@ -682,7 +679,6 @@ sudo systemctl restart docker
    Live Restore Enabled: false
    Product License: Community Engine
 </code></pre>
-<hr>
 <h2 id="6-Hello-world"><a href="#6-Hello-world" class="headerlink" title="6.Hello-world"></a>6.Hello-world</h2><h3 id="6-1-docker-的第一个容器"><a href="#6-1-docker-的第一个容器" class="headerlink" title="6.1 docker 的第一个容器"></a>6.1 docker 的第一个容器</h3><p><strong>docker  run hello-world</strong></p>
 <pre><code class="shell">[root@localhost ~]# docker run hello-world
 
@@ -707,7 +703,6 @@ Share images, automate workflows, and more with a free Docker ID:
 For more examples and ideas, visit:
  https://docs.docker.com/get-started/
 </code></pre>
-<hr>
 <h2 id="7-常用命令"><a href="#7-常用命令" class="headerlink" title="7.常用命令"></a>7.常用命令</h2><h3 id="7-1-辅助命令"><a href="#7-1-辅助命令" class="headerlink" title="7.1 辅助命令"></a>7.1 辅助命令</h3><pre><code class="markdown"># 1.安装完成辅助命令
         docker version    --------------------------    查看docker的信息
         docker info        --------------------------    查看更详细的信息
@@ -730,7 +725,7 @@ For more examples and ideas, visit:
     docker rmi 镜像名    --------------------------  删除镜像
         -f        强制删除
 </code></pre>
-<h3 id="7-3-Contrainer-容器命令"><a href="#7-3-Contrainer-容器命令" class="headerlink" title="7.3 Contrainer 容器命令"></a>7.3 Contrainer 容器命令</h3><pre><code class="markdown"># 1.运行容器
+<h3 id="7-3-Container-容器命令"><a href="#7-3-Container-容器命令" class="headerlink" title="7.3 Container 容器命令"></a>7.3 Container 容器命令</h3><pre><code class="markdown"># 1.运行容器
     docker run 镜像名    --------------------------    镜像名新建并启动容器
     --name                     别名为容器起一个名字（自定义了dns解析，同一网桥下可以使用名称访问ip）
     -d                            启动守护式容器（在后台启动容器）
@@ -812,7 +807,6 @@ For more examples and ideas, visit:
     docker build -t myctr:01 .
 
 </code></pre>
-<hr>
 <h2 id="8-Docker的镜像原理"><a href="#8-Docker的镜像原理" class="headerlink" title="8.Docker的镜像原理"></a>8.Docker的镜像原理</h2><h3 id="8-1-镜像是什么？"><a href="#8-1-镜像是什么？" class="headerlink" title="8.1 镜像是什么？"></a>8.1 镜像是什么？</h3><p>镜像是一种轻量级的，可执行的独立软件包，用来打包软件运行环境和基于运行环境开发的软件，它包含运行某个软件所需的所有内容，包括代码、运行时所需的库、环境变量和配置文件。</p>
 <h3 id="8-2-为什么一个镜像会那么大？"><a href="#8-2-为什么一个镜像会那么大？" class="headerlink" title="8.2 为什么一个镜像会那么大？"></a>8.2 为什么一个镜像会那么大？</h3><p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20200404142950068.png" alt="image-20200404142950068"></p>
 <p><code>镜像就是花卷</code></p>
@@ -837,7 +831,6 @@ For more examples and ideas, visit:
 <ul>
 <li>比如：有多个镜像都是从相同的base镜像构建而来的，那么宿主机只需在磁盘中保存一份base镜像。同时内存中也只需要加载一份base镜像，就可以为所有容器服务了。而且镜像的每一层都可以被共享。Docker镜像都是只读的。当容器启动时，一个新的可写层被加载到镜像的顶部。这一层通常被称为容器层，容器层之下都叫镜像层。</li>
 </ul>
-<hr>
 <h2 id="9-高级网络配置（非常重要）"><a href="#9-高级网络配置（非常重要）" class="headerlink" title="9.高级网络配置（非常重要）"></a>9.高级网络配置（非常重要）</h2><h3 id="9-1-说明"><a href="#9-1-说明" class="headerlink" title="9.1 说明"></a>9.1 说明</h3><p>当 Docker 启动时，会自动在主机上创建一个 <code>bridge</code> 虚拟网桥，实际上是 Linux 的一个 bridge，可以理解为一个软件交换机。它会在挂载到它的网口之间进行转发。</p>
 <p>同时，Docker 随机分配一个本地未占用的私有网段（在 <a href="https://tools.ietf.org/html/rfc1918" target="_blank" rel="noopener">RFC1918</a> 中定义）中的一个地址给 <code>docker0</code> 接口。比如典型的 <code>172.17.42.1</code>，掩码为 <code>255.255.0.0</code>。此后启动的容器内的网口也会自动分配一个同一网段（<code>172.17.0.0/16</code>）的地址。</p>
 <p>当创建一个 Docker 容器的时候，同时会创建了一对 <code>veth pair</code> 接口（当数据包发送到一个接口时，另外一个接口也可以收到相同的数据包）。这对接口一端在容器内，即 <code>eth0</code>；另一端在本地并被挂载到 <code>bridge</code> 网桥，名称以 <code>veth</code> 开头（例如 <code>vethAQI2QT</code>）。通过这种方式，主机可以跟容器通信，容器之间也可以相互通信。Docker 就创建了在主机和所有容器之间一个虚拟共享网络。</p>
@@ -892,7 +885,6 @@ root@f8682db35dd7:/# curl http://nginx001
 &lt;title&gt;Welcome to nginx!&lt;/title&gt;
 .....
 </code></pre>
-<hr>
 <h3 id="9-6-查看网桥信息"><a href="#9-6-查看网桥信息" class="headerlink" title="9.6 查看网桥信息"></a>9.6 查看网桥信息</h3><pre><code class="markdown"># 可以直接查看当前网桥的ip（网关gatwway）和在这个ip下活跃的容器 Containers标签存在容器即活跃
 - docker inspect 网桥名称
 </code></pre>
@@ -991,8 +983,10 @@ my-vol
 </code></pre>
 <h3 id="10-5-删除数据卷"><a href="#10-5-删除数据卷" class="headerlink" title="10.5 删除数据卷"></a>10.5 删除数据卷</h3><pre><code class="shell">docker volume rm my-vol
 </code></pre>
-<hr>
-<h2 id="11-Docker安装常用服务"><a href="#11-Docker安装常用服务" class="headerlink" title="11.Docker安装常用服务"></a>11.Docker安装常用服务</h2><h3 id="11-1-安装mysql"><a href="#11-1-安装mysql" class="headerlink" title="11.1 安装mysql"></a>11.1 安装mysql</h3><pre><code class="markdown"># 1.拉取mysql镜像到本地
+<h2 id="11-Docker安装常用服务"><a href="#11-Docker安装常用服务" class="headerlink" title="11.Docker安装常用服务"></a>11.Docker安装常用服务</h2><h3 id="11-0-必读"><a href="#11-0-必读" class="headerlink" title="11.0 必读"></a>11.0 必读</h3><blockquote>
+<p>下面的安装均是简单安装（单机/单节点）的方法，有些组件高级的集群部署或者是相关介绍和详细设置我就在其他文章里补吧，不然太多了…</p>
+</blockquote>
+<h3 id="11-1-安装mysql"><a href="#11-1-安装mysql" class="headerlink" title="11.1 安装mysql"></a>11.1 安装mysql</h3><pre><code class="markdown"># 1.拉取mysql镜像到本地
     docker pull mysql:tag (tag不加默认最新版本)
 
 # 2.简单运行mysql服务
@@ -1095,7 +1089,6 @@ my-vol
         -v /root/nginx/html:/usr/share/nginx/html \
         nginx        
 </code></pre>
-<hr>
 <h3 id="11-4-安装Tomcat"><a href="#11-4-安装Tomcat" class="headerlink" title="11.4 安装Tomcat"></a>11.4 安装Tomcat</h3><pre><code class="markdown"># 1.在docker hub搜索tomcat
     docker search tomcat
 
@@ -1118,7 +1111,6 @@ my-vol
     -v confs:/usr/local/tomcat/conf \
     tomcat:8.0-jre8
 </code></pre>
-<hr>
 <h3 id="11-5-安装MongoDB数据库"><a href="#11-5-安装MongoDB数据库" class="headerlink" title="11.5 安装MongoDB数据库"></a>11.5 安装MongoDB数据库</h3><pre><code class="markdown"># 1.运行mongDB
     docker run -d -p 27017:27017 --name mymongo mongo  ---无须权限
     docker logs -f mymongo --查看mongo运行日志
@@ -1144,7 +1136,7 @@ my-vol
 <li><a href="https://www.elastic.co/guide/en/elasticsearch/reference/7.5/docker.html" target="_blank" rel="noopener">官方ES docker安装手册</a></li>
 <li><a href="https://www.elastic.co/cn/support/matrix#matrix_compatibility" target="_blank" rel="noopener">官方ES+Kibana版本匹配</a></li>
 </ul>
-<h4 id="0-拉取镜像运行elasticsearch"><a href="#0-拉取镜像运行elasticsearch" class="headerlink" title="0.拉取镜像运行elasticsearch"></a>0.拉取镜像运行elasticsearch</h4><pre><code class="markdown"># 1.dockerhub 拉取镜像
+<h4 id="11-6-0-拉取镜像试运行elasticsearch"><a href="#11-6-0-拉取镜像试运行elasticsearch" class="headerlink" title="11.6.0 拉取镜像试运行elasticsearch"></a>11.6.0 拉取镜像试运行elasticsearch</h4><pre><code class="markdown"># 1.dockerhub 拉取镜像
     docker pull elasticsearch:6.4.2
     docker pull elasticsearch:6.8.0
 # 2.查看docker镜像
@@ -1159,7 +1151,7 @@ my-vol
 <li>启动出现如下错误</li>
 <li><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20200602184321790.png" alt="image-20200602184321790"></li>
 </ul>
-<h4 id="1-预先配置"><a href="#1-预先配置" class="headerlink" title="1. 预先配置"></a>1. 预先配置</h4><pre><code class="markdown"># 1.在centos虚拟机中，修改配置sysctl.conf
+<h4 id="11-6-1-预先配置"><a href="#11-6-1-预先配置" class="headerlink" title="11.6.1 预先配置"></a>11.6.1 预先配置</h4><pre><code class="markdown"># 1.在centos虚拟机中，修改配置sysctl.conf
     vim /etc/sysctl.conf
 # 2.加入如下配置
     vm.max_map_count=262144 
@@ -1179,7 +1171,7 @@ my-vol
     调优这个值将限制进程可拥有VMA的数量。限制一个进程拥有VMA的总数可能导致应用程序出错，因为当进程达到了VMA上线但又只能释放少量的内存给其他的内核进程使用时，操作系统会抛出内存不足的错误。如果你的操作系统在NORMAL区域仅占用少量的内存，那么调低这个值可以帮助释放内存给内核用。
 
 </code></pre>
-<h4 id="2-启动EleasticSearch容器"><a href="#2-启动EleasticSearch容器" class="headerlink" title="2.启动EleasticSearch容器"></a>2.启动EleasticSearch容器</h4><pre><code class="markdown"># 0.复制容器中data目录到宿主机中
+<h4 id="11-6-2-启动EleasticSearch容器"><a href="#11-6-2-启动EleasticSearch容器" class="headerlink" title="11.6.2 启动EleasticSearch容器"></a>11.6.2 启动EleasticSearch容器</h4><pre><code class="markdown"># 0.复制容器中data目录到宿主机中
     docker cp 容器id:/usr/share/share/elasticsearch/data /root/es
 # 1.运行ES容器 指定jvm内存大小并指定ik分词器位置
     docker run -d --name es -p 9200:9200 -p 9300:9300 \
@@ -1194,7 +1186,7 @@ my-vol
     -v esconfig:/usr/share/elasticsearch/config \
     elasticsearch:6.8.0
 </code></pre>
-<h4 id="3-安装IK分词器"><a href="#3-安装IK分词器" class="headerlink" title="3.安装IK分词器"></a>3.安装IK分词器</h4><pre><code class="markdown"># 1.下载对应版本的IK分词器
+<h4 id="11-6-3-安装IK分词器"><a href="#11-6-3-安装IK分词器" class="headerlink" title="11.6.3 安装IK分词器"></a>11.6.3 安装IK分词器</h4><pre><code class="markdown"># 1.下载对应版本的IK分词器
     wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.4.2/elasticsearch-analysis-ik-6.4.2.zip
 
     wget https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v6.8.0/elasticsearch-analysis-ik-6.8.0.zip
@@ -1229,7 +1221,7 @@ my-vol
 # 7.将此容器提交成为一个新的镜像
     docker commit -a=&quot;xiaochen666&quot; -m=&quot;es with IKAnalyzer&quot; 容器id xiaochen/elasticsearch:6.4.2
 </code></pre>
-<h4 id="4-安装Kibana"><a href="#4-安装Kibana" class="headerlink" title="4. 安装Kibana"></a>4. 安装Kibana</h4><pre><code class="markdown"># 1.下载kibana镜像到本地
+<h4 id="11-6-4-安装Kibana"><a href="#11-6-4-安装Kibana" class="headerlink" title="11.6.4 安装Kibana"></a>11.6.4 安装Kibana</h4><pre><code class="markdown"># 1.下载kibana镜像到本地
     docker pull kibana:6.4.2
     docker pull kibana:6.8.0
 
@@ -1320,10 +1312,42 @@ rabbitmq:3.7.8-management-alpine
 
 # 6.登录ip:15672，默认用户名密码 guest/guest
 </code></pre>
-<h3 id="11-9-安装Minio"><a href="#11-9-安装Minio" class="headerlink" title="11.9 安装Minio"></a>11.9 安装Minio</h3><p>抽空加一下:D</p>
-<h3 id="11-10-安装Nacos"><a href="#11-10-安装Nacos" class="headerlink" title="11.10 安装Nacos"></a>11.10 安装Nacos</h3><p>抽空加一下:D</p>
+<h3 id="11-9-安装Minio"><a href="#11-9-安装Minio" class="headerlink" title="11.9 安装Minio"></a>11.9 安装Minio</h3><pre><code class="shell"># 存储目录：
+mkdir -p /middleware/minio/data
+mkdir -p /middleware/minio/config
+
+# 启动命令：
+
+docker run -p 9000:9000 --name finminio \
+-d --restart=unless-stopped \
+-e &quot;MINIO_ACCESS_KEY=fin&quot; \
+-e &quot;MINIO_SECRET_KEY=eyQ3idRpVkNZ&quot; \
+-v /middleware/minio/data:/data \
+-v /middleware/minio/config:/root/.minio \
+minio/minio server /data
+
+# 控制台访问地址：
+http://101.133.150.61:9100/minio/login
+fin/eyQ3idRpVkNZ
+</code></pre>
+<h3 id="11-10-安装Nacos"><a href="#11-10-安装Nacos" class="headerlink" title="11.10 安装Nacos"></a>11.10 安装Nacos</h3><pre><code class="shell">docker load --input nacos.tar
+
+mkdir -p /middleware/nacos/data
+mkdir -p /middleware/nacos/logs
+
+docker run \
+--restart=unless-stopped \
+--name finnacos \
+--privileged=true \
+-p 8848:8848 \
+-e PREFER_HOST_MODE=ip \
+-e MODE=standalone \
+-e NACOS_SERVER_PORT=8848 \
+-v /middleware/nacos/data:/home/nacos/data \
+-v /middleware/nacos/logs:/home/nacos/logs \
+-d nacos/nacos-server:1.4.0
+</code></pre>
 <h3 id="11-11-安装Rancher"><a href="#11-11-安装Rancher" class="headerlink" title="11.11 安装Rancher"></a>11.11 安装Rancher</h3><p>抽空加一下:D</p>
-<hr>
 <h2 id="12-Dockerfile"><a href="#12-Dockerfile" class="headerlink" title="12.Dockerfile"></a>12.Dockerfile</h2><h3 id="12-1-什么是Dockerfile"><a href="#12-1-什么是Dockerfile" class="headerlink" title="12.1 什么是Dockerfile"></a>12.1 什么是Dockerfile</h3><p>Dockerfile可以认为是<strong>Docker镜像的描述文件，是由一系列命令和参数构成的脚本</strong>。主要作用是<strong>用来构建docker镜像的构建文件</strong>。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20200404111908085.png" alt="image-20200404111908085"></p>
 <ul>
@@ -1497,9 +1521,13 @@ ENTRYPOINT command param1 param2
 <p>ENTRYPOINT指令，往往用于设置容器启动后的<strong>第一个命令</strong>，这对一个容器来说往往是固定的。<br>CMD指令，往往用于设置容器启动的第一个命令的<strong>默认参数</strong>，这对一个容器来说可以是变化的。</p>
 </li>
 </ul>
-<h3 id="12-4-Dockerfile举例（方便理解）"><a href="#12-4-Dockerfile举例（方便理解）" class="headerlink" title="12.4 Dockerfile举例（方便理解）"></a>12.4 Dockerfile举例（方便理解）</h3><p>touch bb.txt</p>
-<p>echo “666” &gt;&gt; bb.txt</p>
-<p>docker build -t mycentos7:1 .</p>
+<h3 id="12-4-Dockerfile举例（方便理解）"><a href="#12-4-Dockerfile举例（方便理解）" class="headerlink" title="12.4 Dockerfile举例（方便理解）"></a>12.4 Dockerfile举例（方便理解）</h3><pre><code class="shell"># 举例中你可能用到的命令
+touch bb.txt
+
+echo &quot;666&quot; &gt;&gt; bb.txt
+
+docker build -t mycentos7:1 .
+</code></pre>
 <pre><code class="dockerfile">FROM centos:7
 # 我要基于原来的镜像往里安装里没有的指令的并创建新的进镜像 这里装了vim
 #RUN yum intall -y vim
@@ -1559,22 +1587,21 @@ CMD [&quot;/data/b&quot;]
 <p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20210616171725758.png" alt="image-20210616171725758"></p>
 <p>IDEA sftp</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20210616172705734.png" alt="image-20210616172705734"></p>
-<h3 id="12-6-Dockerfile构建springboot项目部署"><a href="#12-6-Dockerfile构建springboot项目部署" class="headerlink" title="12.6 Dockerfile构建springboot项目部署"></a>12.6 Dockerfile构建springboot项目部署</h3><h4 id="1-准备springboot可运行项目"><a href="#1-准备springboot可运行项目" class="headerlink" title="1.准备springboot可运行项目"></a>1.准备springboot可运行项目</h4><p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20200605172151266.png" alt="image-20200605172151266"></p>
-<h4 id="2-将可运行项目放入linux虚拟机中"><a href="#2-将可运行项目放入linux虚拟机中" class="headerlink" title="2.将可运行项目放入linux虚拟机中"></a>2.将可运行项目放入linux虚拟机中</h4><p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20200605172340380.png" alt="image-20200605172340380"></p>
-<h4 id="3-编写Dockerfile"><a href="#3-编写Dockerfile" class="headerlink" title="3.编写Dockerfile"></a>3.编写Dockerfile</h4><pre><code class="dockerfile">FROM openjdk:8
+<h3 id="12-6-Dockerfile构建springboot项目部署"><a href="#12-6-Dockerfile构建springboot项目部署" class="headerlink" title="12.6 Dockerfile构建springboot项目部署"></a>12.6 Dockerfile构建springboot项目部署</h3><h4 id="12-6-1-准备springboot可运行项目"><a href="#12-6-1-准备springboot可运行项目" class="headerlink" title="12.6.1 准备springboot可运行项目"></a>12.6.1 准备springboot可运行项目</h4><p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20200605172151266.png" alt="image-20200605172151266"></p>
+<h4 id="12-6-2-将可运行项目放入linux虚拟机中"><a href="#12-6-2-将可运行项目放入linux虚拟机中" class="headerlink" title="12.6.2 将可运行项目放入linux虚拟机中"></a>12.6.2 将可运行项目放入linux虚拟机中</h4><p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20200605172340380.png" alt="image-20200605172340380"></p>
+<h4 id="12-6-3-编写Dockerfile"><a href="#12-6-3-编写Dockerfile" class="headerlink" title="12.6.3 编写Dockerfile"></a>12.6.3 编写Dockerfile</h4><pre><code class="dockerfile">FROM openjdk:8
 WORKDIR /ems
 ADD ems.jar /ems
 EXPOSE 8989
 ENTRYPOINT [&quot;java&quot;,&quot;-jar&quot;]
 CMD [&quot;ems.jar&quot;]
 </code></pre>
-<h4 id="4-构建镜像"><a href="#4-构建镜像" class="headerlink" title="4.构建镜像"></a>4.构建镜像</h4><pre><code class="shell">[root@localhost ems]# docker build -t ems .
+<h4 id="12-6-4-构建镜像"><a href="#12-6-4-构建镜像" class="headerlink" title="12.6.4 构建镜像"></a>12.6.4 构建镜像</h4><pre><code class="shell">[root@localhost ems]# docker build -t ems .
 </code></pre>
-<h4 id="5-运行镜像"><a href="#5-运行镜像" class="headerlink" title="5.运行镜像"></a>5.运行镜像</h4><pre><code class="shell">[root@localhost ems]# docker run -p 8989:8989 ems
+<h4 id="12-6-5-运行镜像"><a href="#12-6-5-运行镜像" class="headerlink" title="12.6.5 运行镜像"></a>12.6.5 运行镜像</h4><pre><code class="shell">[root@localhost ems]# docker run -p 8989:8989 ems
 </code></pre>
-<h4 id="6-访问项目"><a href="#6-访问项目" class="headerlink" title="6.访问项目"></a>6.访问项目</h4><pre><code class="http">http://10.15.0.8:8989/ems/login.html
+<h4 id="12-6-6-访问项目"><a href="#12-6-6-访问项目" class="headerlink" title="12.6.6 访问项目"></a>12.6.6 访问项目</h4><pre><code class="http">http://10.15.0.8:8989/ems/login.html
 </code></pre>
-<hr>
 <h2 id="13-Docker-Compose"><a href="#13-Docker-Compose" class="headerlink" title="13.Docker Compose"></a>13.Docker Compose</h2><p>相关参考文档：</p>
 <ul>
 <li><a href="https://vuepress.mirror.docker-practice.com/compose/introduction/" target="_blank" rel="noopener">Compose 简介 | Docker 从入门到实践 (docker-practice.com)</a></li>
@@ -1593,18 +1620,18 @@ CMD [&quot;ems.jar&quot;]
 </ul>
 <p><code>Compose</code> 的默认管理对象是项目，通过子命令对项目中的一组容器进行便捷地生命周期管理。</p>
 <p><code>Compose</code> 项目由 Python 编写，实现上调用了 Docker 服务提供的 API 来对容器进行管理。因此，只要所操作的平台支持 Docker API，就可以在其上利用 <code>Compose</code> 来进行编排管理。</p>
-<h3 id="13-2-安装与卸载"><a href="#13-2-安装与卸载" class="headerlink" title="13.2 安装与卸载"></a>13.2 安装与卸载</h3><h4 id="1-linux"><a href="#1-linux" class="headerlink" title="1.linux"></a>1.linux</h4><ul>
+<h3 id="13-2-安装与卸载"><a href="#13-2-安装与卸载" class="headerlink" title="13.2 安装与卸载"></a>13.2 安装与卸载</h3><h4 id="13-2-1-linux"><a href="#13-2-1-linux" class="headerlink" title="13.2.1 linux"></a>13.2.1 linux</h4><ul>
 <li>在 Linux 上的也安装十分简单，从 官方 GitHub Release 处直接下载编译好的二进制文件即可。例如，在 Linux 64 位系统上直接下载对应的二进制包。</li>
 </ul>
 <pre><code class="bash">$ sudo curl -L https://github.com/docker/compose/releases/download/1.25.5/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose
 $ sudo chmod +x /usr/local/bin/docker-compose
 </code></pre>
-<h4 id="2-macos、window"><a href="#2-macos、window" class="headerlink" title="2.macos、window"></a>2.macos、window</h4><ul>
+<h4 id="13-2-2-macos、window"><a href="#13-2-2-macos、window" class="headerlink" title="13.2.2 macos、window"></a>13.2.2 macos、window</h4><ul>
 <li>Compose 可以通过 Python 的包管理工具 pip 进行安装，也可以直接下载编译好的二进制文件使用，甚至能够直接在 Docker 容器中运行。<code>Docker Desktop for Mac/Windows 自带 docker-compose 二进制文件，安装 Docker 之后可以直接使用</code>。</li>
 </ul>
-<h4 id="3-bash命令补全"><a href="#3-bash命令补全" class="headerlink" title="3.bash命令补全"></a>3.bash命令补全</h4><pre><code class="shell">$ curl -L https://raw.githubusercontent.com/docker/compose/1.25.5/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose
+<h4 id="13-2-3-bash命令补全"><a href="#13-2-3-bash命令补全" class="headerlink" title="13.2.3 bash命令补全"></a>13.2.3 bash命令补全</h4><pre><code class="shell">$ curl -L https://raw.githubusercontent.com/docker/compose/1.25.5/contrib/completion/bash/docker-compose &gt; /etc/bash_completion.d/docker-compose
 </code></pre>
-<h4 id="4-离线"><a href="#4-离线" class="headerlink" title="4.离线"></a>4.离线</h4><p>就是下载二进制文件，改名，丢进local/bin</p>
+<h4 id="13-2-4-离线"><a href="#13-2-4-离线" class="headerlink" title="13.2.4 离线"></a>13.2.4 离线</h4><p>就是下载二进制文件，改名，丢进local/bin</p>
 <p><a href="https://github.com/docker/compose/releases" target="_blank" rel="noopener">官方</a>网站里找你需要的版本</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20210616181426416.png" alt="image-20210616181426416"></p>
 <pre><code class="shell">mv docker-compose-Linux-x86_64 docker-compose
@@ -1612,24 +1639,20 @@ mv docker-compose /usr/local/bin
 chmod +x /usr/local/bin/docker-compose 
 </code></pre>
 <p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20210616184306066.png" alt="image-20210616184306066"></p>
-<h4 id="5-卸载"><a href="#5-卸载" class="headerlink" title="5.卸载"></a>5.卸载</h4><ul>
+<h4 id="13-2-5-卸载"><a href="#13-2-5-卸载" class="headerlink" title="13.2.5 卸载"></a>13.2.5 卸载</h4><ul>
 <li>如果是二进制包方式安装的，删除二进制文件即可。</li>
 </ul>
 <pre><code class="shell">$ sudo rm /usr/local/bin/docker-compose
 </code></pre>
-<h4 id="6-测试安装成功"><a href="#6-测试安装成功" class="headerlink" title="6.测试安装成功"></a>6.测试安装成功</h4><pre><code class="shell">$ docker-compose --version
+<h4 id="13-2-6-测试安装成功"><a href="#13-2-6-测试安装成功" class="headerlink" title="13.2.6 测试安装成功"></a>13.2.6 测试安装成功</h4><pre><code class="shell">$ docker-compose --version
  docker-compose version 1.25.5, build 4667896b
 </code></pre>
-<h3 id="13-3-docker-compose使用"><a href="#13-3-docker-compose使用" class="headerlink" title="13.3 docker compose使用"></a>13.3 docker compose使用</h3><pre><code class="markdown"># 1.相关概念
-</code></pre>
-<p>首先介绍几个术语。</p>
+<h3 id="13-3-docker-compose使用"><a href="#13-3-docker-compose使用" class="headerlink" title="13.3 docker compose使用"></a>13.3 docker compose使用</h3><h4 id="13-3-1-相关概念"><a href="#13-3-1-相关概念" class="headerlink" title="13.3.1 相关概念"></a>13.3.1 相关概念</h4><p>首先介绍几个术语。</p>
 <ul>
 <li>服务 (<code>service</code>)：一个应用容器，实际上可以运行多个相同镜像的实例。</li>
 <li>项目 (<code>project</code>)：由一组关联的应用容器组成的一个完整业务单元。∂一个项目可以由多个服务（容器）关联而成，<code>Compose</code> 面向项目进行管理。</li>
 </ul>
-<pre><code class="markdown"># 2.场景
-</code></pre>
-<p>最常见的项目是 web 网站，该项目应该包含 web 应用和缓存。</p>
+<h4 id="13-3-2-场景"><a href="#13-3-2-场景" class="headerlink" title="13.3.2 场景"></a>13.3.2 场景</h4><p>最常见的项目是 web 网站，该项目应该包含 web 应用和缓存。</p>
 <ul>
 <li>springboot应用</li>
 <li>mysql服务</li>
@@ -1637,9 +1660,7 @@ chmod +x /usr/local/bin/docker-compose
 <li>elasticsearch服务</li>
 <li>…….</li>
 </ul>
-<pre><code class="markdown"># 3.docker-compose模板
-- 参考文档:https://docker_practice.gitee.io/zh-cn/compose/compose_file.html
-</code></pre>
+<h4 id="13-3-3-docker-compose模板"><a href="#13-3-3-docker-compose模板" class="headerlink" title="13.3.3 docker-compose模板"></a>13.3.3 docker-compose模板</h4><p><a href="https://docker_practice.gitee.io/zh-cn/compose/compose_file.html" target="_blank" rel="noopener">参考文档</a></p>
 <pre><code class="yml">version: &quot;3.0&quot;
 services:
 
@@ -1772,13 +1793,10 @@ networks: #定义服务用到桥
     external:
       true   #使用外部指定网桥  注意:网桥必须存在
 </code></pre>
-<pre><code class="markdown"># 4.通过docker-compose运行一组容器
-- 参考文档:https://docker_practice.gitee.io/zh-cn/compose/commands.html
-</code></pre>
+<h4 id="13-3-4-通过docker-compose运行一组容器"><a href="#13-3-4-通过docker-compose运行一组容器" class="headerlink" title="13.3.4 通过docker-compose运行一组容器"></a>13.3.4 通过docker-compose运行一组容器</h4><p><a href="https://docker_practice.gitee.io/zh-cn/compose/commands.html" target="_blank" rel="noopener">参考文档</a></p>
 <pre><code class="bash">[root@centos ~]# docker-compose up                                //前台启动一组服务
 [root@centos ~]# docker-compose up -d                             //后台启动一组服务
 </code></pre>
-<hr>
 <h3 id="13-4-docker-compose-模板文件"><a href="#13-4-docker-compose-模板文件" class="headerlink" title="13.4 docker-compose 模板文件"></a>13.4 docker-compose 模板文件</h3><p>模板文件是使用 <code>Compose</code> 的核心，涉及到的指令关键字也比较多。但大家不用担心，这里面大部分指令跟 <code>docker run</code> 相关参数的含义都是类似的。</p>
 <p>默认的模板文件名称为 <code>docker-compose.yml</code>，格式为 YAML 格式。</p>
 <pre><code class="yaml">version: &quot;3&quot; #docker-compose的版本
@@ -1939,15 +1957,14 @@ services:
 volumes:
   mysql_data:
 </code></pre>
-<hr>
-<h3 id="13-5-docker-compose-常用命令"><a href="#13-5-docker-compose-常用命令" class="headerlink" title="13.5 docker-compose 常用命令"></a>13.5 docker-compose 常用命令</h3><h4 id="1-命令对象与格式"><a href="#1-命令对象与格式" class="headerlink" title="1. 命令对象与格式"></a>1. 命令对象与格式</h4><p>对于 Compose 来说，大部分命令的对象既可以是项目本身，也可以指定为项目中的服务或者容器。如果没有特别的说明，命令对象将是项目，这意味着项目中所有的服务都会受到命令影响。</p>
+<h3 id="13-5-docker-compose-常用命令"><a href="#13-5-docker-compose-常用命令" class="headerlink" title="13.5 docker-compose 常用命令"></a>13.5 docker-compose 常用命令</h3><h4 id="13-5-1-命令对象与格式"><a href="#13-5-1-命令对象与格式" class="headerlink" title="13.5.1 命令对象与格式"></a>13.5.1 命令对象与格式</h4><p>对于 Compose 来说，大部分命令的对象既可以是项目本身，也可以指定为项目中的服务或者容器。如果没有特别的说明，命令对象将是项目，这意味着项目中所有的服务都会受到命令影响。</p>
 <p>执行 <code>docker-compose [COMMAND] --help</code> 或者 <code>docker-compose help [COMMAND]</code> 可以查看具体某个命令的使用格式。</p>
 <p><code>docker-compose</code> 命令的基本的使用格式是</p>
 <pre><code class="bash">docker-compose [-f=&lt;arg&gt;...] [options] [COMMAND] [ARGS...]
 
 docker-compose -f your-compose.yml -p your-project up
 </code></pre>
-<h4 id="2-命令选项"><a href="#2-命令选项" class="headerlink" title="2. 命令选项"></a>2. 命令选项</h4><ul>
+<h4 id="13-5-2-命令选项"><a href="#13-5-2-命令选项" class="headerlink" title="13.5.2 命令选项"></a>13.5.2 命令选项</h4><ul>
 <li><code>-f, --file FILE</code> 指定使用的 Compose 模板文件，默认为 <code>docker-compose.yml</code>，可以多次指定。</li>
 <li><code>-p, --project-name NAME</code> 指定项目名称，默认将使用所在目录名称作为项目名。</li>
 <li><code>--x-networking</code> 使用 Docker 的可拔插网络后端特性</li>
@@ -1955,7 +1972,7 @@ docker-compose -f your-compose.yml -p your-project up
 <li><code>--verbose</code> 输出更多调试信息。</li>
 <li><code>-v, --version</code> 打印版本并退出。</li>
 </ul>
-<h4 id="3-命令使用说明"><a href="#3-命令使用说明" class="headerlink" title="3.命令使用说明"></a>3.命令使用说明</h4><h5 id="up"><a href="#up" class="headerlink" title="up"></a>up</h5><p>格式为 <code>docker-compose up [options] [SERVICE...]</code>。</p>
+<h4 id="13-5-3-命令使用说明"><a href="#13-5-3-命令使用说明" class="headerlink" title="13.5.3 命令使用说明"></a>13.5.3 命令使用说明</h4><h5 id="up"><a href="#up" class="headerlink" title="up"></a>up</h5><p>格式为 <code>docker-compose up [options] [SERVICE...]</code>。</p>
 <ul>
 <li><p>该命令十分强大，它将尝试自动完成包括构建镜像，（重新）创建服务，启动服务，并关联服务相关容器的一系列操作。</p>
 </li>
@@ -2024,8 +2041,7 @@ docker-compose -f your-compose.yml -p your-project up
 <hr>
 <h5 id="logs"><a href="#logs" class="headerlink" title="logs"></a>logs</h5><p>格式为 <code>docker-compose logs [SERVICE...]</code>。</p>
 <p>查看日志。</p>
-<hr>
-<h2 id="14-Docker可视化工具"><a href="#14-Docker可视化工具" class="headerlink" title="14.Docker可视化工具"></a>14.Docker可视化工具</h2><h3 id="13-1-安装Portainer"><a href="#13-1-安装Portainer" class="headerlink" title="13.1 安装Portainer"></a>13.1 安装Portainer</h3><p>官方安装说明：<a href="http://www.yunweipai.com/go?_=8fe4813824aHR0cHM6Ly93d3cucG9ydGFpbmVyLmlvL2luc3RhbGxhdGlvbi8=" target="_blank" rel="noopener">https://www.portainer.io/installation/</a></p>
+<h2 id="14-Docker可视化工具"><a href="#14-Docker可视化工具" class="headerlink" title="14.Docker可视化工具"></a>14.Docker可视化工具</h2><h3 id="14-1-安装Portainer"><a href="#14-1-安装Portainer" class="headerlink" title="14.1 安装Portainer"></a>14.1 安装Portainer</h3><p>官方安装说明：<a href="http://www.yunweipai.com/go?_=8fe4813824aHR0cHM6Ly93d3cucG9ydGFpbmVyLmlvL2luc3RhbGxhdGlvbi8=" target="_blank" rel="noopener">https://www.portainer.io/installation/</a></p>
 <pre><code class="shell">[root@ubuntu1804 ~]#docker pull  portainer/portainer
 
 [root@ubuntu1804 ~]#docker volume create portainer_data
@@ -2055,7 +2071,7 @@ volumes:
     external:
       true
 </code></pre>
-<h3 id="13-2-登录和使用Portainer"><a href="#13-2-登录和使用Portainer" class="headerlink" title="13.2 登录和使用Portainer"></a>13.2 登录和使用Portainer</h3><p>用浏览器访问：<code>http://localhost:9000</code></p>
+<h3 id="14-2-登录和使用Portainer"><a href="#14-2-登录和使用Portainer" class="headerlink" title="14.2 登录和使用Portainer"></a>14.2 登录和使用Portainer</h3><p>用浏览器访问：<code>http://localhost:9000</code></p>
 <p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20201223231707738.png" alt="image-20201223231707738"></p>
 <p> Stacks指的是你运行的docker-compose，一个项目就是一个Stacks</p>
 <p><img src="https://cdn.jsdelivr.net/gh/LKarrie/CDN/md/docker/image-20210620005645817.png" alt="image-20210620005645817"></p>
